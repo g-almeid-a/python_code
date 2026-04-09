@@ -14,17 +14,18 @@ SORTEIO DE NOMES
 lista_nome = []
 
 def remove_lista():
-    global lista_nome
-    del lista_nome
+    lista_nome
+    lista_nome.clear()
 
 def remove_nome():
-    global lista_nome
+    lista_nome
     nome = input("Digite o nome a ser removido: ")
     if nome not in lista_nome:
         print(f"\n{nome} não está na lista.")
     else:
         lista_nome.remove(nome)
-    print(f"\n{nome} foi removido do sorteio. \n\nLista atual: {lista_nome}")
+        print(f"\n{nome} foi removido do sorteio.")
+    print(f"\nLista atual: {lista_nome}")
 
 while True:
     opcao = input(menu)
@@ -34,7 +35,6 @@ while True:
         lista_nome.append(nome)
         print(f"\n{nome} foi adicionado à lista.")
         print(f"\nLista atual: {lista_nome}")
-        continue
 
     elif opcao == '2':
         if not lista_nome:
@@ -49,12 +49,10 @@ while True:
             if not lista_nome:
                 print("\nTodos os nomes foram sorteados. A lista está vazia.")
                 remove_lista()
-            continue
     
     elif opcao == '3':
         if not lista_nome:
             print("\nNão há nomes na lista para remover.")
-            continue
         remove_nome()
 
     elif opcao == '4':
